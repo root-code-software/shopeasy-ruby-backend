@@ -19,7 +19,8 @@ default: &default
   encoding: utf8
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
 
 development:
   <<: *default
@@ -80,6 +81,3 @@ test:
 #
 production:
   <<: *default
-  database: shopeasy_ruby_backend_production
-  username: shopeasy_ruby_backend
-  password: <%= ENV['SHOPEASY_RUBY_BACKEND_DATABASE_PASSWORD'] %>
