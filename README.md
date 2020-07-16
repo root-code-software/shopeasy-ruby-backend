@@ -17,7 +17,8 @@ Provide in a `.env` file the key ``
 
 * Database initialization
 
-`heroku run rake db:migrate`
+`heroku run rails db:migrate`
+`heroku run rails db:seed`
 
 * How to run the test suite
 
